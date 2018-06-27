@@ -11,6 +11,9 @@ window.onload=function oneTitleList(){
 				//alert(data[i].onetitle_name);
 				$("#oneTitleList").append("<option value='"+data[i].onetitle_id+"'>"+data[i].onetitle_name+"</option>");
 			}
+			var selectOneValue = $("#selectOneValue").val();
+			$("#oneTitleList option[value='"+selectOneValue+"']").attr("selected","selected");
+			
 			
 		},
 		error:function(data){
@@ -30,7 +33,8 @@ window.onload=function oneTitleList(){
 				
 				$("#supplier_id").append("<option value='"+data[i].supplier_id+"'>"+data[i].supplier_name+"</option>");
 			}
-			
+			var selectSupplier = $("#selectSupplier").val();
+			$("#supplier_id option[value='"+selectSupplier+"']").attr("selected","selected");
 		},
 		error:function(data){
 			alert("fail");
@@ -56,7 +60,8 @@ $(document).ready(function(){$("#oneTitleList").change(function(){
 				//alert(data[i].onetitle_name);
 				$("#twotitle_id").append("<option value='"+data[i].twotitle_id+"'>"+data[i].twotitle_name+"</option>");
 			}
-			
+			var selectTwoValue = $("#selectTwoValue").val();
+			$("#twotitle_id option[value='"+selectTwoValue+"']").attr("selected","selected");
 		},
 		error:function(data){
 			alert("fail");

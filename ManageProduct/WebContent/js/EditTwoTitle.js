@@ -11,6 +11,8 @@ window.onload=function oneTitleList(){
 				//alert(data[i].onetitle_name);
 				$("#oneTitleList").append("<option value='"+data[i].onetitle_id+"'>"+data[i].onetitle_name+"</option>");
 			}
+			var select_value = $("#select_value").val();
+			$("#oneTitleList option[value='"+select_value+"']").attr("selected","selected");
 			
 		},
 		error:function(data){
@@ -18,6 +20,7 @@ window.onload=function oneTitleList(){
 		},
 		
 	});
+	
 }
 $(function(){$("#twotitle_name").blur(
 		function(){

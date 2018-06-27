@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"   %>
 <!DOCTYPE html >
 <html lang="cn">
 
@@ -45,7 +46,7 @@
                             <div class="widget-body  am-fr">
 		
 								
-								<form class="am-form tpl-form-border-form tpl-form-border-br" name="updateProduct" action="manageProductServlet?action=updateProduct" method="post" >
+								<form class="am-form tpl-form-border-form tpl-form-border-br" name="updateProduct" action="manageProductServlet?action=updateProduct" method="post" data-am-validator>
 						
 							 <div class="am-form-group">
                                         <label class="am-u-sm-3 am-form-label" >商品代码</label>
@@ -60,7 +61,9 @@
                                         </div>
                                     </div>
 							 		<div class="am-form-group">
+							 		
                                         <label class="am-u-sm-3 am-form-label" >选择一级标题</label>
+                                        <input type="hidden" id="selectOneValue"  value="${onetitle_id}"/>
                                         <div class="am-u-sm-9">
                                            <select data-am-selected name="oneTitleList" id="oneTitleList" >
  												 
@@ -68,6 +71,7 @@
                                         </div>
 										
 										 <label class="am-u-sm-3 am-form-label" >选择二级标题</label>
+										 <input type="hidden" id="selectTwoValue"  value="${resultProduct.twotitle_id}"/>
                                         <div class="am-u-sm-9">
                                            <select data-am-selected name="twotitle_id" id="twotitle_id">
  												 
@@ -109,6 +113,7 @@
                                     </div>
                                      <div class="am-form-group">
                                         <label class="am-u-sm-3 am-form-label" >供应商</label>
+                                        <input type="hidden" id="selectSupplier"  value="${resultProduct.supplier_id}"/>
                                         <div class="am-u-sm-9">
                                             <select data-am-selected name="supplier_id" id="supplier_id" >
  												 
@@ -125,16 +130,21 @@
                                     <div class="am-form-group">
                                         <label class="am-u-sm-3 am-form-label" >保质期限</label>
                                         <div class="am-u-sm-9">
-                                            <input type="text" name="quality_period" class="am-form-field" value="${resultProduct.quality_period}">
+                                            <input type="text" name="quality_period" class="am-form-field" value="${resultProduct.quality_period}" data-am-datepicker="" readonly="readonly">
                                         </div>
                                     </div>
                                     <div class="am-form-group">
                                         <label class="am-u-sm-3 am-form-label" >可否退货</label>
                                         <div class="am-u-sm-9">
                                             <select data-am-selected name="is_return" id="is_return" >
+                                            <c:if test="${resultProduct.is_return==1}">
  												 <option value=1 selected >可以</option>
   												<option value=0 >不可以</option>
-  					                           
+  					                           </c:if>
+  					                            <c:if test="${resultProduct.is_return==0}">
+ 												 <option value=1  >可以</option>
+  												<option value=0 selected>不可以</option>
+  					                           </c:if>
 											</select>
                                         </div>
                                     </div>
@@ -142,8 +152,14 @@
                                         <label class="am-u-sm-3 am-form-label" >可否换货</label>
                                         <div class="am-u-sm-9">
                                             <select data-am-selected name="is_exchange" id="is_exchange" >
+ 												 <c:if test="${resultProduct.is_exchange==1}">
  												 <option value=1 selected >可以</option>
   												<option value=0 >不可以</option>
+  					                           </c:if>
+  					                            <c:if test="${resultProduct.is_exchange==0}">
+ 												 <option value=1  >可以</option>
+  												<option value=0 selected>不可以</option>
+  					                           </c:if>
   					                           
 											</select>
                                         </div>
@@ -151,7 +167,7 @@
                                     <div class="am-form-group">
                                         <label class="am-u-sm-3 am-form-label" >备注</label>
                                         <div class="am-u-sm-9">
-                                            <textarea class="" rows="5" id="" value="2333" name="notes" id="notes" >${resultProduct.notes}</textarea>
+                                            <textarea class="" rows="5" id="" name="notes" id="notes" >${resultProduct.notes}</textarea>
                                         </div>
                                     </div>
 							  <div class="am-form-group">

@@ -1,6 +1,6 @@
 $(document).ready(function(){$("#selectType").change(function(){
 	var select_type = $(this).val();
-	alert(select_type);
+	//alert(select_type);
 	if(select_type=='productCode'){
 			$("#selectText").keyup(function(){ 
 			$(this).val($(this).val().replace(/\D|^0/g,'')); 

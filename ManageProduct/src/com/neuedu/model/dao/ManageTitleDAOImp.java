@@ -572,4 +572,25 @@ public class ManageTitleDAOImp implements ManageTitleDAO{
 			return "true";
 		}
 	}
+
+	@Override
+	public int selectOneIdByTwoId(int twotitle_id) {
+		PreparedStatement ps = null;
+		int onetitle_id = 0;
+		try {
+			ps = conn.prepareStatement("select onetitle_id from twotitle where twotitle_id=?");
+			ps.setInt(1, twotitle_id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				onetitle_id = rs.getInt("onetitle_id");
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtil.closePS(ps);
+		}
+		
+		return onetitle_id;
+	}
 }

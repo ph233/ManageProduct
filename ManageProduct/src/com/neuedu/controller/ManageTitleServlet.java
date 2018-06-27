@@ -30,7 +30,7 @@ public class ManageTitleServlet extends HttpServlet {
 		doPost(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("����servlet");
+		System.out.println("进入分类servlet");
 		request.setCharacterEncoding("utf-8");
 		String action = request.getParameter("action");
 		if("addone".equals(action)) {

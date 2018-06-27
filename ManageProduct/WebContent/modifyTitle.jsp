@@ -61,13 +61,16 @@
                                     </div>
 									<div class="am-form-group">
                                         <label class="am-u-sm-3 am-form-label" >选择一级标题</label>
+                                        	<input type="hidden" id="select_value"  value="${resultTwoTitle[0].onetitle_id}"/>
                                         <div class="am-u-sm-9">
                                            <select data-am-selected name="oneTitleList" id="oneTitleList">
  												 
 											</select>
                                         </div>
                                     </div>
-							 
+							 	<script >
+								//$("#oneTitleList").find("option[value='"+${resultTwoTitle[0].onetitle_id}+"']").attr("selected","selected");
+							 	</script>
 							  <div class="am-form-group">
                                         <div class="am-u-sm-9 am-u-sm-push-3">
                                             <a class="button" href="#" ><button type="submit" id="submitTwoTitle" class="am-btn am-btn-success" data-am-modal="{target: '#my-alert'}" >保存</button></a>

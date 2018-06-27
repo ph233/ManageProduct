@@ -135,7 +135,9 @@ public class ManageProductServlet extends HttpServlet {
 	private void modifyProduct(HttpServletRequest request, HttpServletResponse response) {//查询修改商品信息并跳转到修改商品界面
 		int product_id = Integer.parseInt(request.getParameter("product_id"));//获取要修改商品的ID
 		Product product = ManageProductService.getInstance().selectProductById(product_id);//查询该商品
+		int onetitle_id = ManageTitleService.getInstance().selectOneIdByTwoId(product.getTwotitle_id());//查询该商品的一级分类ID
 		request.setAttribute("resultProduct", product);//返回该商品信息
+		request.setAttribute("onetitle_id", onetitle_id);//返回该商品的一级分类ID
 		try {
 			request.getRequestDispatcher("modifyProduct.jsp").forward(request, response);//跳转到修改商品界面
 		} catch (ServletException e) {
@@ -384,5 +386,5 @@ public class ManageProductServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-
+	
 }

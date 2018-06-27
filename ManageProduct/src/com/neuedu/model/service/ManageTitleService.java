@@ -182,4 +182,10 @@ public class ManageTitleService {
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
 		return dao.twoTitleIsDelete(twotitle_id);
 	}
+
+	public int selectOneIdByTwoId(int twotitle_id) {
+		Connection conn = DBUtil.getConn();
+		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
+		return dao.selectOneIdByTwoId(twotitle_id);
+	}
 }

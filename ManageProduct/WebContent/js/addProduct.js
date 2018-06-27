@@ -86,7 +86,7 @@ $("#submitProduct").click(function(){
 
 		});
 $(function(){
-	$("#product_name").blur(
+	$("#product_name").change(
 		function(){
 			
 			var product_name = $(this).val();
@@ -121,7 +121,7 @@ $(function(){
 		}		
 		);
 
-	$("#discount").blur(
+	$("#discount").change(
 		function(){
 			var re = /^[0-9]+(.[0-9]{1,3})?$/;
 			var discount = $(this).val();
@@ -143,7 +143,7 @@ $(function(){
 			}
 		}		
 		);
-	$("#cost_price").blur(
+	$("#cost_price").change(
 			function(){
 				var re = /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/;
 				var cost_price = $(this).val();
@@ -165,7 +165,7 @@ $(function(){
 				}
 			}		
 			);
-	$("#original_price").blur(
+	$("#original_price").change(
 			function(){
 				var re = /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/;
 				var original_price = $(this).val();

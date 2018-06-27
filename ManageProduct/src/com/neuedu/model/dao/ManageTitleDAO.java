@@ -46,4 +46,6 @@ public interface ManageTitleDAO {
 	List<TwoTitle> selectTwoTitleById(int twotitle_id);
 
 	String twoTitleIsDelete(int twotitle_id);
+
+	int selectOneIdByTwoId(int twotitle_id);
 }
