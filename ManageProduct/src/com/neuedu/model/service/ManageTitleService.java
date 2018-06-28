@@ -50,33 +50,45 @@ public class ManageTitleService {
 	public List<OneTitle> selectOneTitle(String onetitle_name) {
 				Connection conn = DBUtil.getConn();
 				ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-				return dao.selectOneList(onetitle_name);
+				List<OneTitle> list = dao.selectOneList(onetitle_name);
+				DBUtil.closeConn(conn);
+				return list;
 	}
 	public List<TwoTitle> selectTwoTitle(String twotitle_name) {
 				Connection conn = DBUtil.getConn();
 				ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-				return dao.selectTwoList(twotitle_name);
+				List<TwoTitle> list = dao.selectTwoList(twotitle_name);
+				DBUtil.closeConn(conn);
+				return list;
 	}
 	public List<OneTitle> selectOneTitle(String onetitle_name, int pageNum, int pageSize) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.selectOneList(onetitle_name,pageNum,pageSize);
+		List<OneTitle> list = dao.selectOneList(onetitle_name,pageNum,pageSize);
+		DBUtil.closeConn(conn);
+		return list;
 	}
 
 	public List<TwoTitle> selectTwoTitle(String twotitle_name, int pageNum, int pageSize) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.selectTwoList(twotitle_name,pageNum,pageSize);
+		List<TwoTitle> list = dao.selectTwoList(twotitle_name,pageNum,pageSize);
+		DBUtil.closeConn(conn);
+		return list;
 	}
 	public int selectOnePage(String onetitle_name, int pageSize) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.selectOnePage(onetitle_name,pageSize);
+		int onepage = dao.selectOnePage(onetitle_name,pageSize);
+		DBUtil.closeConn(conn);
+		return onepage;
 	}
 	public int selectTwoPage(String twotitle_name, int pageSize) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.selectTwoPage(twotitle_name,pageSize);
+		int twopage = dao.selectTwoPage(twotitle_name,pageSize);
+		DBUtil.closeConn(conn);
+		return twopage;
 	}
 	public void updateTwoTitle(TwoTitle twoTitle) {
 
@@ -113,7 +125,9 @@ public class ManageTitleService {
 	public String selectOneNameById(int onetitle_id) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.selectOneNameById(onetitle_id);
+		String onename = dao.selectOneNameById(onetitle_id);
+		DBUtil.closeConn(conn);
+		return onename;
 	}
 	public void deleteTwoTitle(int twotitle_id) {
 
@@ -150,42 +164,58 @@ public class ManageTitleService {
 	public String oneTitleIsDelete(int onetitle_id) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.oneTitleIsDelete(onetitle_id);
+		String isdelete = dao.oneTitleIsDelete(onetitle_id);
+		DBUtil.closeConn(conn);
+		return isdelete;
 	}
 	public List<TwoTitle> selectTwoTitle(int onetitle_id) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.selectTwoList(onetitle_id);
+		List<TwoTitle> list =dao.selectTwoList(onetitle_id);
+		DBUtil.closeConn(conn);
+		return list;
 	}
 	public String selectTwoNameById(int twotitle_id) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.selectTwoNameById(twotitle_id);
+		String twoname = dao.selectTwoNameById(twotitle_id);
+		DBUtil.closeConn(conn);
+		return twoname;
 	}
 	public String selectOneNameByTwoId(int twotitle_id) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.selectOneNameByTwoId(twotitle_id);
+		String onename = dao.selectOneNameByTwoId(twotitle_id);
+		DBUtil.closeConn(conn);
+		return  onename;
 	}
 	public List<OneTitle> selectOneTitleById(int onetitle_id) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.selectOneTitleById(onetitle_id);
+		List<OneTitle> list = dao.selectOneTitleById(onetitle_id);
+		DBUtil.closeConn(conn);
+		return list;
 	}
 	public List<TwoTitle> selectTwoTitleById(int twotitle_id) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.selectTwoTitleById(twotitle_id);
+		List<TwoTitle> list = dao.selectTwoTitleById(twotitle_id);
+		DBUtil.closeConn(conn);
+		return list;
 	}
 	public String twoTitleIsDelete(int twotitle_id) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.twoTitleIsDelete(twotitle_id);
+		String isdelete =  dao.twoTitleIsDelete(twotitle_id);
+		DBUtil.closeConn(conn);
+		return isdelete;
 	}
 
 	public int selectOneIdByTwoId(int twotitle_id) {
 		Connection conn = DBUtil.getConn();
 		ManageTitleDAO dao = new ManageTitleDAOImp(conn);
-		return dao.selectOneIdByTwoId(twotitle_id);
+		int count = dao.selectOneIdByTwoId(twotitle_id);
+		DBUtil.closeConn(conn);
+		return count;
 	}
 }

@@ -54,7 +54,7 @@
                                     </div>-->
                                     <div class="am-form-group">
                                         <label class="am-u-sm-3 am-form-label" >商品名称</label>
-                                        <div class="am-u-sm-9">
+                                        <div class="am-u-sm-9" id="product_name_div">
                                             <input type="text" name="product_name" id="product_name" class="am-form-field" placeholder="商品名称" required="required">
                                         </div>
                                     </div>
@@ -77,7 +77,7 @@
 									 <div class="am-form-group">
                                         <label class="am-u-sm-3 am-form-label" >计量单位</label>
                                         <div class="am-u-sm-9">
-                                            <input type="text" name="measurement" class="am-form-field" placeholder="计量单位" required="required">
+                                            <input type="text" name="measurement" id="measurement" class="am-form-field" placeholder="计量单位" required="required">
                                         </div>
                                     </div>
 									 <div class="am-form-group">
@@ -118,7 +118,7 @@
                                     <div class="am-form-group">
                                         <label class="am-u-sm-3 am-form-label" >厂商</label>
                                         <div class="am-u-sm-9">
-                                            <input type="text" name="vendor" class="am-form-field" placeholder="厂商" required="required">
+                                            <input type="text" name="vendor" id="vendor" class="am-form-field" placeholder="厂商" required="required">
                                         </div>
                                     </div>
                                     <div class="am-form-group">

@@ -2,6 +2,8 @@ var flag1 = 0;
 var flag2 = 0;
 var flag3 = 0;
 var flag4 = 0;
+var flag5 = 0;
+var flag6 = 0;
 window.onload=function oneTitleList(){
 	$.ajax({
 		type:"post",
@@ -71,7 +73,7 @@ $(document).ready(function(){$("#oneTitleList").change(function(){
 	});
 });
 $("#submitProduct").click(function(){
-	if(flag1==1&&flag2==1&&flag3==1&&flag4==1){
+	if(flag1==1&&flag2==1&&flag3==1&&flag4==1&&flag5==1&&flag6==1){
 		$("#addProduct").submit();
 	}else if(flag1==0){
 		alert("请重新输入商品名");
@@ -81,7 +83,12 @@ $("#submitProduct").click(function(){
 		alert("请重新输入成本价");
 	}else if(flag4==0){
 		alert("请重新输入原价");
+	}else if(flag5==0){
+		alert("请输入计量单位");
+	}else if(flag6==0){
+		alert("请输入厂商");
 	}
+	
 })
 
 		});
@@ -108,6 +115,7 @@ $(function(){
 							flag1=1;
 						}else{
 							alert("商品名称重名，请重新输入");
+							
 							flag1=0;
 							//$("#submitProduct").attr("disabled","disabled");
 						}
@@ -187,5 +195,31 @@ $(function(){
 				}
 			}		
 			);
+	$("#measurement").change(
+			function(){
+				
+				
+				if($(this).val() == "" || $.trim($(this).val()).length == 0){
+					alert("请输入计量单位");
+					flag5=0;
+					}
+				else{
+					flag5=1;
+				}
+			}
+			)
+			$("#vendor").change(
+			function(){
+				
+				
+				if($(this).val() == "" || $.trim($(this).val()).length == 0){
+					alert("请输入厂商");
+					flag6=0;
+					}
+				else{
+					flag6=1;
+				}
+			}
+			)
 		}
 );
